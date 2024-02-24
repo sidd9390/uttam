@@ -1,0 +1,1260 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Divano - Website Documentation</title>
+    <!--CSS styles-->
+    <link rel="stylesheet" media="screen" href="css/default.min.css" />
+    <link rel="stylesheet" media="screen" href="css/help.css" />
+    <!--JS files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        $(function () {
+            $('nav li a').click(function () {
+                $('nav li a').removeClass('active');
+                $(this).addClass('active')
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="label"><a>Navigation</a></li>
+            <li><a href="#css-files">CSS files</a></li>
+            <li><a href="#js-files">Javascript files</a></li>
+            <li><a href="#loader">Page loader</a></li>
+            <li><a href="#nav">Navigation</a></li>
+            <li><a href="#slider">Frontpage slider</a></li>
+            <li><a href="#icon-slider">Furniture icons</a></li>
+            <li><a href="#3dhover">3D Hover</a></li>
+            <li><a href="#team">Team figure</a></li>
+            <li><a href="#instagram">Instagram</a></li>
+            <li><a href="#productgrid">Product grid</a></li>
+            <li><a href="#productlist">Product list</a></li>
+            <li><a href="#bloggrid">Blog grid</a></li>
+            <li><a href="#bloglist">Blog list</a></li>
+            <li>&nbsp;</li>
+            <li><a href="#credits">Credits</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>
+            Divano - Theme documentation
+            <br />
+            <small style="color:#808080">Version 1.1.0</small>
+        </h1>
+
+        <!-- #################### CSS #################### -->
+
+        <div id="css-files">
+            <h2 class="title">Stylesheets</h2>
+            <p>
+                First of all, you need to include all needed css files. Make sure that the main theme css "
+                <i class="true">theme.css</i>" is the last one, it will apply all basic theme files. Media queries for responsive preview are included!
+            </p>
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/bootstrap.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/animate.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/font-awesome.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/ion-range-slider.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/linear-icons.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/magnific-popup.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/owl.carousel.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;css/theme.css&quot; /&gt;
+                    </code></pre>
+        </div>
+
+        <!-- #################### Javascript #################### -->
+
+        <div id="js-files">
+            <h2 class="title">Javascript</h2>
+            <p>
+                Add all main .js files to your document. Options and initalizations are in "
+                <i class="true">main.js</i>"
+            </p>
+            <pre><code class="hljs">
+&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/bootstrap.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/ion.rangeSlider.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/magnific-popup.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/owl.carousel.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/tilt.jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery.easypiechart.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/bigtext.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+</code>    </pre>
+        </div>
+
+        <!-- #################### Page loader #################### -->
+
+        <div id="loader">
+            <h2 class="title">Page loader</h2>
+            <p>Page loader markup needs to be firs element after "body" tag.</p>
+
+            <h4 class="subtitle">Markup of loader</h4>
+            <pre -number class="brush: html  language-html"><code>&lt;div class=&quot;page-loader&quot;&gt;
+    &lt;div class=&quot;spinner-border&quot; role=&quot;status&quot;&gt;
+        &lt;span class=&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+            <h4 class="subtitle">Loader javascript</h4>
+            <p>Be sure that <strong>$(window).bind("load", function () {...}</strong> cannot be inside <strong>$(function() {...})</strong> shorthand for $( document ).ready()</p>
+            <pre><code>$(window).on(&quot;load&quot;, function () {<br />    setTimeout(function () {<br />        $(&#39;.page-loader&#39;).addClass(&#39;loaded&#39;);<br />    }, 1000);<br />})</code></pre>
+        </div>
+
+        <!-- #################### Navigation #################### -->
+
+        <div id="nav">
+            <h2 class="title">Navigation</h2>
+
+            <h4 class="subtitle">Markup</h4>
+            <p>
+                First of all, you need to include all needed css files. Make sure that the main theme css "
+                <i class="true">theme.css</i>" is the last one, it will apply all basic theme files. Media queries for responsive preview are included!
+            </p>
+
+            <pre data-number class="brush: html  language-html">
+            <code class="hljs">
+&lt;nav&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+
+        &lt;a href=&quot;index.html&quot; class=&quot;logo&quot;&gt;&lt;img src=&quot;assets/images/divano-logo.svg&quot; alt=&quot;&quot; width=&quot;130&quot; height=&quot;55&quot; /&gt;&lt;/a&gt;
+
+        &lt;!-- ==========  Top navigation ========== --&gt;
+
+        &lt;div class=&quot;navigation navigation-top clearfix&quot;&gt;
+            &lt;ul&gt;
+
+                &lt;!--add active class for current page--&gt;
+
+                &lt;li class=&quot;left-side&quot;&gt;&lt;a href=&quot;index.html&quot; class=&quot;logo-icon&quot;&gt;&lt;img src=&quot;assets/images/divano-logo.svg&quot; alt=&quot;Alternate Text&quot; width=&quot;150&quot; height=&quot;34&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+
+                &lt;!--add new item--&gt;
+
+                &lt;li class=&quot;left-side&quot;&gt;&lt;a href=&quot;#&quot;&gt;Your item&lt;/a&gt;&lt;/li&gt;
+
+                &lt;!--login, search &amp; cart mobile triggers--&gt;
+
+                &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot; class=&quot;open-login&quot;&gt;&lt;i class=&quot;icon icon-user&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot; class=&quot;open-search&quot;&gt;&lt;i class=&quot;icon icon-magnifier&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot; class=&quot;open-cart&quot;&gt;&lt;i class=&quot;icon icon-cart&quot;&gt;&lt;/i&gt; &lt;span&gt;4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;!-- ==========  Main navigation ========== --&gt;
+
+        &lt;div class=&quot;navigation navigation-main&quot;&gt;
+
+            &lt;!--login, search &amp; cart desktop triggers--&gt;
+
+            &lt;a href=&quot;#&quot; class=&quot;open-login&quot;&gt;&lt;i class=&quot;icon icon-user&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;open-search&quot;&gt;&lt;i class=&quot;icon icon-magnifier&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;open-cart&quot;&gt;&lt;i class=&quot;icon icon-cart&quot;&gt;&lt;/i&gt; &lt;span&gt;4&lt;/span&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;open-menu&quot;&gt;&lt;i class=&quot;icon icon-menu&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+
+            &lt;div class=&quot;floating-menu&quot;&gt;
+
+                &lt;!--mobile toggle menu trigger--&gt;
+
+                &lt;div class=&quot;close-menu-wrapper&quot;&gt;
+                    &lt;span class=&quot;close-menu&quot;&gt;&lt;i class=&quot;icon icon-cross&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!--menu list--&gt;
+
+                &lt;ul&gt;
+
+                    &lt;!--single dropdown example--&gt;
+
+                    &lt;li&gt;
+
+                        &lt;a href=&quot;#&quot;&gt;Home &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+
+                        &lt;!--dropdown--&gt;
+
+                        &lt;div class=&quot;navbar-dropdown navbar-dropdown-single&quot;&gt;
+                            &lt;div class=&quot;navbar-box&quot;&gt;
+                                &lt;div class=&quot;box-full&quot;&gt;
+                                    &lt;div class=&quot;box clearfix&quot;&gt;
+                                        &lt;ul&gt;
+                                            &lt;li class=&quot;label&quot;&gt;Label&lt;/li&gt;
+                                            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Submenu item&lt;/a&gt;&lt;/li&gt;
+                                            &lt;li&gt;...&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                    &lt;/li&gt;
+
+                    &lt;!--megadropdown boxed example--&gt;
+
+                    &lt;li&gt;
+                        &lt;a href=&quot;#&quot;&gt;Boxmenu  &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+
+                        &lt;!--megadropdown--&gt;
+
+                        &lt;div class=&quot;navbar-dropdown&quot;&gt;
+                            &lt;div class=&quot;navbar-box&quot;&gt;
+
+                                &lt;!--left side dropdown--&gt;
+
+                                &lt;div class=&quot;box-lg&quot;&gt;
+                                    &lt;div class=&quot;box clearfix&quot;&gt;
+                                        &lt;div class=&quot;row&quot;&gt;
+                                            &lt;div class=&quot;col-lg-4&quot;&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li class=&quot;label&quot;&gt;Label&lt;/li&gt;
+                                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Submenu item&lt;/a&gt;&lt;/li&gt;
+                                                    &lt;li&gt;...&lt;/li&gt;
+                                                    &lt;!--add link--&gt;
+                                                    &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon icon-chevron-right&quot;&gt;&lt;/i&gt; More&lt;/a&gt;&lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;!--right side dropdown--&gt;
+
+                                &lt;div class=&quot;box-sm&quot;&gt;
+                                    &lt;div class=&quot;image&quot;&gt;
+                                        &lt;!--your image goes here--&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;box&quot;&gt;
+                                        &lt;!--your content goes here--&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+
+                    &lt;!--megadropdown full example--&gt;
+
+                    &lt;li&gt;
+                        &lt;a href=&quot;#&quot;&gt;Megamenu &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                        &lt;div class=&quot;navbar-dropdown&quot;&gt;
+                            &lt;div class=&quot;navbar-box&quot;&gt;
+                                &lt;div class=&quot;box-full&quot;&gt;
+                                    &lt;div class=&quot;box clearfix&quot;&gt;
+                                        &lt;div class=&quot;row&quot;&gt;
+                                            &lt;div class=&quot;col-lg-3&quot;&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt;...&lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/div&gt;
+
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+
+                    &lt;!--currency navbar--&gt;
+
+                    &lt;li class=&quot;nav-settings&quot;&gt;
+                        &lt;a href=&quot;javascript:void(0);&quot;&gt;&lt;span class=&quot;nav-settings-value&quot;&gt;CURRENCY&lt;/span&gt; &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                        &lt;div class=&quot;navbar-dropdown navbar-dropdown-single&quot;&gt;
+                            &lt;div class=&quot;navbar-box&quot;&gt;
+                                &lt;div class=&quot;box-full&quot;&gt;
+                                    &lt;div class=&quot;box clearfix&quot;&gt;
+                                        &lt;ul class=&quot;nav-settings-list&quot;&gt;
+                                            &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;...&lt;/a&gt;&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+
+                    &lt;!--language navbar--&gt;
+
+                    &lt;li class=&quot;nav-settings&quot;&gt;
+                        &lt;a href=&quot;javascript:void(0);&quot;&gt;&lt;span class=&quot;nav-settings-value&quot;&gt;LANGUAGE&lt;/span&gt; &lt;span class=&quot;open-dropdown&quot;&gt;&lt;i class=&quot;fa fa-angle-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+                        &lt;div class=&quot;navbar-dropdown navbar-dropdown-single&quot;&gt;
+                            &lt;div class=&quot;navbar-box&quot;&gt;
+                                &lt;div class=&quot;box-full&quot;&gt;
+                                    &lt;div class=&quot;box clearfix&quot;&gt;
+                                        &lt;ul class=&quot;nav-settings-list&quot;&gt;
+                                            &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot;&gt;...&lt;/a&gt;&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- ==========  Search wrapper ========== --&gt;
+
+        &lt;div class=&quot;search-wrapper&quot;&gt;
+            &lt;input class=&quot;form-control&quot; placeholder=&quot;Search...&quot; /&gt;
+            &lt;button class=&quot;btn btn-outline-dark btn-sm&quot;&gt;Search now&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- ==========  Login wrapper ========== --&gt;
+
+        &lt;div class=&quot;login-wrapper&quot;&gt;
+            &lt;div class=&quot;h5&quot;&gt;Sign in&lt;/div&gt;
+            &lt;form&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;exampleInputEmail1&quot; placeholder=&quot;Email&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;exampleInputPassword1&quot; placeholder=&quot;Password&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;a href=&quot;#forgotpassword&quot; class=&quot;open-popup btn btn-main btn-sm&quot;&gt;Forgot password?&lt;/a&gt;
+                    &lt;a href=&quot;#createaccount&quot; class=&quot;open-popup btn btn-main btn-sm&quot;&gt;Don&#39;t have an account?&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;btn btn-block btn-outline-primary&quot;&gt;Submit&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+
+        &lt;!-- ==========  Cart wrapper ========== --&gt;
+
+        &lt;div class=&quot;cart-wrapper&quot;&gt;
+            &lt;div class=&quot;checkout&quot;&gt;
+                &lt;div class=&quot;clearfix&quot;&gt;
+
+                    &lt;div class=&quot;row&quot;&gt;
+
+                        &lt;!--cart item--&gt;
+
+                        &lt;div class=&quot;cart-block cart-block-item clearfix&quot;&gt;
+                            &lt;div class=&quot;image&quot;&gt;
+                                &lt;a href=&quot;product.html&quot;&gt;&lt;img src=&quot;assets/images/item-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;title&quot;&gt;
+                                &lt;div&gt;&lt;a href=&quot;product.html&quot;&gt;&lt;!--Product item--&gt;&lt;/a&gt;&lt;/div&gt;
+                                &lt;small&gt;&lt;!--&gt;Product category--&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;quantity&quot;&gt;
+                                &lt;input type=&quot;number&quot; value=&quot;2&quot; class=&quot;form-control form-quantity&quot; /&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;price&quot;&gt;
+                                &lt;span class=&quot;final&quot;&gt;&lt;!--Final price--&gt;&lt;/span&gt;
+                                &lt;span class=&quot;discount&quot;&gt;&lt;!--Old price--&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;!--delete-this-item--&gt;
+                            &lt;span class=&quot;icon icon-cross icon-delete&quot;&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+
+                        &lt;!--cart item--&gt;
+
+                        &lt;div class=&quot;cart-block cart-block-item clearfix&quot;&gt;
+                            ...
+                        &lt;/div&gt;
+
+
+                    &lt;/div&gt;
+
+                    &lt;hr /&gt;
+
+                    &lt;!--cart prices --&gt;
+
+                    &lt;div class=&quot;clearfix&quot;&gt;
+
+                        &lt;div class=&quot;cart-block cart-block-footer clearfix&quot;&gt;
+                            &lt;div&gt;
+                                &lt;strong&gt;&lt;!--Discount--&gt;&lt;/strong&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;span&gt;&lt;!--Price--&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;cart-block cart-block-footer clearfix&quot;&gt;
+                            ...
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+
+                    &lt;hr /&gt;
+
+                    &lt;!--cart final price --&gt;
+
+                    &lt;div class=&quot;clearfix&quot;&gt;
+                        &lt;div class=&quot;cart-block cart-block-footer clearfix&quot;&gt;
+                            &lt;div&gt;
+                                &lt;strong&gt;&lt;!--Total--&gt;&lt;/strong&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;div class=&quot;h4 title&quot;&gt;&lt;!--$ 1259,00--&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+
+                    &lt;!--cart navigation --&gt;
+
+                    &lt;div class=&quot;cart-block-buttons clearfix&quot;&gt;
+                        &lt;div class=&quot;row&quot;&gt;
+                            &lt;div class=&quot;col-sm-6&quot;&gt;
+                                &lt;a href=&quot;products-grid.html&quot; class=&quot;btn btn-outline-info&quot;&gt;&lt;!--Continue shopping--&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;col-sm-6 text-right&quot;&gt;
+                                &lt;a href=&quot;checkout-1.html&quot; class=&quot;btn btn-outline-warning&quot;&gt;&lt;span class=&quot;icon icon-cart&quot;&gt;&lt;/span&gt; &lt;!--Checkout--&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+
+                </code>    
+            </pre>
+
+            <h4 class="subtitle">Call javascript</h4>
+            <p>The functions are triggers login, searchbar or cart items. Mobile events are included too.</p>
+
+            <pre>
+            <code class="hljs">
+// Main navigation &amp; mega menu
+// ----------------------------------------------------------------
+
+// Global menu variables
+
+var objSearch = $(&#39;.search-wrapper&#39;),
+    objLogin = $(&#39;.login-wrapper&#39;),
+    objCart = $(&#39;.cart-wrapper&#39;),
+    objMenu = $(&#39;.floating-menu&#39;),
+    objMenuLink = $(&#39;.floating-menu a&#39;),
+    $search = $(&#39;.open-search&#39;),
+    $login = $(&#39;.open-login&#39;),
+    $cart = $(&#39;.open-cart&#39;),
+    $menu = $(&#39;.open-menu&#39;),
+    $openDropdown = $(&#39;.open-dropdown&#39;),
+    $close = $(&#39;.close-menu&#39;),
+    $settingsItem = $(&#39;.nav-settings .nav-settings-list li&#39;);
+
+// Open/close login
+
+$login.on(&#39;click&#39;, function () {
+    toggleOpen($(this));
+    objLogin.toggleClass(&#39;open&#39;);
+    closeSearch();
+    closeCart();
+});
+
+// Open/close search bar
+
+$search.on(&#39;click&#39;, function () {
+    toggleOpen($(this));
+    objSearch.toggleClass(&#39;open&#39;);
+    objSearch.find(&#39;input&#39;).focus();
+    closeLogin();
+    closeCart();
+});
+
+// Open/close cart
+
+$cart.on(&#39;click&#39;, function () {
+    toggleOpen($(this));
+    objCart.toggleClass(&#39;open&#39;);
+    closeLogin();
+    closeSearch();
+});
+
+// Settings language &amp; currency dropdown
+
+$settingsItem.on(&#39;click&#39;, function () {
+    var $value = $(this).closest(&#39;.nav-settings&#39;).find(&#39;.nav-settings-value&#39;);
+    $value.text($(this).text());
+});
+
+
+// Mobile menu open/close
+
+$menu.on(&#39;click&#39;, function () {
+    objMenu.addClass(&#39;expanded&#39;);
+    closeSearch();
+    closeLogin();
+    closeCart();
+});
+
+// Floating menu hyperlink
+if ($(&#39;nav&#39;).hasClass(&#39;navbar-single-page&#39;)) {
+    objMenuLink.on(&#39;click&#39;, function () {
+        objMenu.removeClass(&#39;expanded&#39;);
+    });
+}
+
+// Open dropdown/megamenu
+
+$openDropdown.on(&#39;click&#39;, function (e) {
+
+    e.preventDefault();
+
+    var liParent = $(this).parent().parent(),
+        liDropdown = liParent.find(&#39;.navbar-dropdown&#39;);
+
+    liParent.toggleClass(&#39;expanded&#39;);
+
+    if (liParent.hasClass(&#39;expanded&#39;)) {
+        liDropdown.slideDown();
+    }
+    else {
+        liDropdown.slideUp();
+    }
+});
+
+// Close menu (mobile)
+
+$close.on(&#39;click&#39;, function () {
+    $(&#39;nav&#39;).find(&#39;.expanded&#39;).removeClass(&#39;expanded&#39;);
+    $(&#39;nav&#39;).find(&#39;.navbar-dropdown&#39;).slideUp();
+});
+
+// Global functions
+
+function toggleOpen(el) {
+    $(el).toggleClass(&#39;open&#39;);
+}
+
+function closeSearch() {
+    objSearch.removeClass(&#39;open&#39;);
+    $search.removeClass(&#39;open&#39;);
+}
+function closeLogin() {
+    objLogin.removeClass(&#39;open&#39;);
+    $login.removeClass(&#39;open&#39;);
+}
+function closeCart() {
+    objCart.removeClass(&#39;open&#39;);
+    $cart.removeClass(&#39;open&#39;);
+}
+                </code>
+            </pre>
+        </div>
+
+
+        <!-- #################### Frontpage slider #################### -->
+
+        <div id="slider">
+
+            <h2 class="title">Frontpage slider</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of slider</h4>
+            <p>
+                Animation are included and it can be called on data-amination attributes. List of supported animations are
+                <a href="https://daneden.github.io/animate.css/">here</a>
+            </p>
+
+            <div class="image">
+                <img src="assets/images/frontpage-slider.jpg" alt="" />
+            </div>
+
+            <pre>
+            <code class="hljs">
+&lt;div class=&quot;header-content&quot;&gt;
+
+    &lt;div class=&quot;owl-slider owl-carousel owl-theme&quot;&gt;
+
+        &lt;!--Slide item--&gt;
+
+        &lt;div class=&quot;item d-flex align-items-center&quot; style=&quot;background-image:url(IMAGE_PATH)&quot;&gt;
+
+            &lt;div class=&quot;container&quot;&gt;
+
+                &lt;!--Caption--&gt;
+
+                &lt;div class=&quot;caption&quot;&gt;
+                    &lt;div class=&quot;animated&quot; data-start=&quot;fadeInUp&quot;&gt;
+                        &lt;div class=&quot;promo pt-3&quot;&gt;
+                            &lt;div class=&quot;title title-sm p-0 m-0&quot;&gt;&lt;!--Text--&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;animated&quot; data-start=&quot;fadeInUp&quot;&gt;
+                        &lt;!--Text--&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;animated&quot; data-start=&quot;fadeInUp&quot;&gt;
+                        &lt;div class=&quot;pt-3&quot;&gt;
+                            &lt;a href=&quot;#&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-warning&quot;&gt;&lt;!--Text--&gt;&lt;/a&gt;
+                            &lt;a href=&quot;#&quot; target=&quot;_blank&quot; class=&quot;btn btn-outline-light&quot;&gt; &lt;!--Text--&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;animated&quot; data-start=&quot;fadeInUp&quot;&gt;
+                        &lt;div class=&quot;promo pt-5&quot;&gt;
+                            &lt;div class=&quot;h6 p-0 m-0&quot;&gt;&lt;!--Text--&gt;&lt;/div&gt;
+                            &lt;div class=&quot;price&quot;&gt;
+                                &lt;span&gt;&lt;!--Text--&gt;&lt;/span&gt;
+                                &lt;span&gt;&lt;!--Text--&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;small&gt;&lt;!--Text--&gt;&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+&lt;/div&gt;
+                </code>
+            </pre>
+
+            <!-- --------- Initalize the plugin --------- -->
+
+            <h4 class="subtitle">Initalize the plugin</h4>
+            <p>
+                For more documentation please visit
+                <a href="http://www.landmarkmlp.com/js-plugin/owl.carousel/" target="_blank">Owl Carousel webiste</a>
+            </p>
+
+            <pre>
+            <code class="hljs">
+// Frontpage slider
+// ----------------------------------------------------------------
+
+var arrowIcons = [
+    &#39;&lt;span class=&quot;icon icon-chevron-left&quot;&gt;&lt;/span&gt;&#39;,
+    &#39;&lt;span class=&quot;icon icon-chevron-right&quot;&gt;&lt;/span&gt;&#39;
+];
+
+
+$.each($(&quot;.owl-slider&quot;), function (i, n) {
+
+    var $n = $(n);
+
+    $n.owlCarousel({
+        items: 1,
+        loop: true,
+        // spacing
+        margin: 0,
+        stagePadding: 0,
+        // navigation
+        nav: true,
+        dots: false,
+        navText: arrowIcons,
+        // animation effects
+        smartSpeed: 950,
+        onTranslated: startAnimation,
+        onTranslate: resetAnimation,
+        animateIn: &#39;fadeIn&#39;,
+        animateOut: &#39;fadeOut&#39;
+    });
+
+    resetAnimation(); // reset effects all on initalization
+    startAnimation(); // start animation on first slide
+
+    function startAnimation(event) {
+        // find active slide
+        var activeItem = $(n).find(&#39;.owl-item.active&#39;),
+            timeDelay = 100;
+
+        $.each(activeItem.find(&#39;.animated&#39;), function (j, m) {
+            // catch active slide
+            var item = $(m);
+            item.css(&#39;animation-delay&#39;, timeDelay + &#39;ms&#39;);
+            timeDelay = timeDelay + 180;
+            // add animation
+            item.removeClass(&#39;fadeOut&#39;);
+            item.addClass(item.data(&#39;start&#39;));
+        });
+    }
+
+    function resetAnimation(event) {
+        // catch all slides
+        var items = $(n).find(&#39;.owl-item&#39;);
+            // for each add animation end
+            $.each(items.find(&#39;.animated&#39;), function (j, m) {
+                var item = $(m);
+                item.removeClass(item.data(&#39;start&#39;));
+                item.addClass(&#39;fadeOut&#39;);
+            });
+    }
+    var navHeight = $(&#39;nav&#39;).height();
+
+    if ($(n).hasClass(&#39;owl-slider-fullscreen&#39;)) {
+        $(&#39;.header-content .item&#39;).height($(window).height() - navHeight);
+    }
+
+});
+            </code>
+            </pre>
+
+        </div>
+
+        <!-- #################### Icon slider #################### -->
+
+        <div id="icon-slider">
+
+            <h2 class="title">Icons slider</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of slider</h4>
+            <p>
+                All furniture icons examples are available in the
+                <a href="../template/shortcodes.html"><strong>shorcodes</strong></a> page. Here is an example to generate a markup and initalize javascript function.
+            </p>
+
+            <p> Set custom property <strong>"data-icons"</strong> to show number of icons on desktop</p>
+
+            <div class="image">
+                <img src="assets/images/icons.jpg" alt="" />
+            </div>
+
+            <pre>
+            <code class="hljs">
+&lt;div class=&quot;owl-icons-wrapper&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;owl-icons owl-carousel owl-theme&quot; data-icons=&quot;8&quot;&gt;
+
+            &lt;!--icon item--&gt;
+
+            &lt;a href=&quot;#&quot;&gt;
+                &lt;figure&gt;
+                    &lt;div class=&quot;image&quot;&gt;
+                        &lt;img src=&quot;IMAGE-PATH&quot; alt=&quot;Alternate Text&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;figcaption&gt;Your title&lt;/figcaption&gt;
+                &lt;/figure&gt;
+            &lt;/a&gt;
+
+        &lt;/div&gt; 
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+
+            <!-- --------- Initalize the plugin --------- -->
+
+            <h4 class="subtitle">Initalize the plugin</h4>
+
+            <pre>
+            <code class="hljs">
+$.each($(&quot;.owl-icons&quot;), function (i, n) {
+
+    $(n).owlCarousel({
+        items: 6,
+        loop: true,
+        // spacing
+        margin: 0,
+        stagePadding: 0,
+        // navigation
+        nav: true,
+        dots: false,
+        navText: arrowIcons,
+        // animation effects
+        smartSpeed: 950,
+        responsive: {
+            0: {
+                items: 4,
+                nav: true
+            },
+            600: {
+                items: 4,
+                nav: false
+            },
+            1000: {
+                items: $(n).data(&quot;icons&quot;),
+                nav: true,
+                loop: false
+            }
+        }
+    });
+
+});
+            </code>
+            </pre>
+
+            <p>Don't repeat variable "arrowIcons" if already included.</p>
+        </div>
+
+        <!-- #################### 3D Hover #################### -->
+
+        <div id="3dhover">
+
+            <h2 class="title">3D hover cards</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of slider</h4>
+
+            <p>Display 3d hover effect with data atribute <strong>"data-3d"</strong> </p>
+
+            <div class="image">
+                <img src="assets/images/3d-hover.jpg" alt="" />
+            </div>
+
+            <pre>
+            <code class="hljs">
+&lt;div class=&quot;blog blog-block&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row text-center&quot;&gt;
+
+            &lt;!--Item--&gt;
+
+            &lt;div class=&quot;col-md-4&quot;&gt;
+                &lt;article&gt;
+                    &lt;div data-3d&gt;
+                        &lt;a href=&quot;#&quot;&gt;
+                            &lt;div class=&quot;image&quot;&gt;
+                                &lt;img src=&quot;IMAGE_PATH&quot; alt=&quot;&quot; /&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;entry entry-block&quot;&gt;
+                                &lt;div class=&quot;date&quot;&gt;...&lt;/div&gt;
+                                &lt;div class=&quot;title&quot;&gt;
+                                    &lt;h2 class=&quot;h4&quot;&gt;...&lt;/h2&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;description&quot;&gt;
+                                    &lt;p&gt;...&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;show-more&quot;&gt;
+                                &lt;span class=&quot;btn btn-clean&quot;&gt;...&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+
+            <!-- --------- Initalize the plugin --------- -->
+
+            <h4 class="subtitle">Initalize the plugin</h4>
+
+            <pre>
+            <code class="hljs">
+// hover3d
+// ----------------------------------------------------------------
+
+$(&#39;[data-3d]&#39;).tilt({
+    glare: true,
+    maxTilt: 3,
+    maxGlare: 1
+});
+            </code>
+            </pre>
+
+        </div>
+
+        <!-- #################### team cards #################### -->
+
+        <div id="team">
+
+            <h2 class="title">Team figures</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of team</h4>
+
+            <div class="image">
+                <img src="assets/images/team.jpg" alt="" />
+            </div>
+
+            <pre>
+            <code class="hljs">
+&lt;div class=&quot;team&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+
+            &lt;!--Team member--&gt;
+
+            &lt;div class=&quot;col-md-3&quot; data-3d&gt;
+                &lt;article&gt;
+                    &lt;div class=&quot;details details-text&quot;&gt;
+                        &lt;div class=&quot;inner&quot;&gt;
+                            &lt;h5 class=&quot;title&quot;&gt;...&lt;/h5&gt;
+                            &lt;h6 class=&quot;title&quot;&gt;...&lt;/h6&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;image&quot;&gt;
+                        &lt;img src=&quot;assets/images/person-4.jpg&quot; alt=&quot;&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;details details-social&quot;&gt;
+                        &lt;div class=&quot;inner&quot;&gt;
+                            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-google-plus&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+            </pre>
+
+        </div>
+
+        <!-- #################### Instagram #################### -->
+
+        <div id="instagram">
+
+            <h2 class="title">Instagram</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of instagram</h4>
+
+            <div class="image">
+                <img src="assets/images/instagram.jpg" alt="" />
+            </div>
+
+            <pre>
+            <code class="hljs">
+&lt;div class=&quot;instagram&quot;&gt;
+
+    &lt;header&gt;
+        &lt;h2 class=&quot;h6 title&quot;&gt;
+            Follow us &lt;br&gt;
+            &lt;i class=&quot;fa fa-instagram fa-3x&quot;&gt;&lt;/i&gt; &lt;br&gt;
+            #Divano
+        &lt;/h2&gt;
+    &lt;/header&gt;
+
+    &lt;div class=&quot;gallery clearfix&quot;&gt;
+
+        &lt;!--item--&gt;
+
+        &lt;a class=&quot;item&quot; href=&quot;#&quot;&gt;
+            &lt;img src=&quot;IMAGE_PATH&quot; alt=&quot;&quot;&gt;
+        &lt;/a&gt;
+
+    &lt;/div&gt; 
+&lt;/div&gt;
+</code>
+            </pre>
+
+
+        </div>
+
+        <!-- #################### Product grid #################### -->
+
+        <div id="productgrid">
+
+            <h2 class="title">Product grid</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of product grid</h4>
+
+            <div class="image">
+                <img src="assets/images/products.jpg" alt="" />
+            </div>
+
+<pre>
+<code class="hljs">
+&lt;div class=&quot;products&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+
+            &lt;!--Product item--&gt;
+
+            &lt;div class=&quot;col-6 col-lg-3&quot;&gt;
+
+                &lt;article&gt;
+                    &lt;div class=&quot;info&quot;&gt;
+                        &lt;span class=&quot;add-favorite&quot;&gt;
+                            &lt;a href=&quot;javascript:void(0);&quot; data-title=&quot;Add to favorites&quot; data-title-added=&quot;Added to favorites list&quot;&gt;
+                                &lt;i class=&quot;icon icon-heart&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                        &lt;span&gt;
+                            &lt;a href=&quot;#productid1&quot; class=&quot;mfp-open&quot; data-title=&quot;Quick wiew&quot;&gt;
+                                &lt;i class=&quot;icon icon-eye&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;btn btn-add&quot;&gt;
+                        &lt;i class=&quot;icon icon-cart&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;figure-grid&quot;&gt;
+                        &lt;span class=&quot;badge badge-warning&quot;&gt;...&lt;/span&gt;
+                        &lt;div class=&quot;image&quot;&gt;
+                            &lt;a href=&quot;product.html&quot;&gt;
+                                &lt;img src=&quot;IMAGE_PATH alt=&quot;&quot; /&gt;
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;text&quot;&gt;
+                            &lt;h2 class=&quot;title h4&quot;&gt;
+                                &lt;a href=&quot;#&quot;&gt;...&lt;/a&gt;
+                            &lt;/h2&gt;
+                            &lt;sub&gt;...&lt;/sub&gt;
+                            &lt;sup&gt;...&lt;/sup&gt;
+                            &lt;span class=&quot;description clearfix&quot;&gt;
+                                ...
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt; &lt;!--/row--&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+        </div>
+
+        <!-- #################### Product list #################### -->
+
+        <div id="productlist">
+
+            <h2 class="title">Product list</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of product list</h4>
+
+            <div class="image">
+                <img src="assets/images/products-list.jpg" alt="" />
+            </div>
+<pre>
+<code class="hljs">
+&lt;div class=&quot;products&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+
+            &lt;!--Product item--&gt;
+
+            &lt;div class=&quot;col-12&quot;&gt;
+                &lt;article&gt;
+                    &lt;div class=&quot;info&quot;&gt;
+                        &lt;span class=&quot;add-favorite&quot;&gt;
+                            &lt;a href=&quot;javascript:void(0);&quot; data-title=&quot;Add to favorites&quot; data-title-added=&quot;Added to favorites list&quot;&gt;
+                                &lt;i class=&quot;icon icon-heart&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                        &lt;span&gt;
+                            &lt;a href=&quot;#productid1&quot; class=&quot;mfp-open&quot; data-title=&quot;Quick wiew&quot;&gt;
+                                &lt;i class=&quot;icon icon-eye&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;btn btn-add&quot;&gt;
+                        &lt;i class=&quot;icon icon-cart&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;figure-list&quot;&gt;
+                        &lt;span class=&quot;badge badge-warning&quot;&gt;...&lt;/span&gt;
+                        &lt;div class=&quot;image&quot;&gt;
+                            &lt;a href=&quot;#&quot;&gt;
+                                &lt;img src=&quot;IMAGE_PATH alt=&quot;&quot; /&gt;
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;text&quot;&gt;
+                            &lt;h2 class=&quot;title h4&quot;&gt;
+                                &lt;a href=&quot;#&quot;&gt;...&lt;/a&gt;
+                            &lt;/h2&gt;
+                            &lt;sub&gt;...&lt;/sub&gt;
+                            &lt;sup&gt;...&lt;/sup&gt;
+                            &lt;span class=&quot;description clearfix&quot;&gt;
+                                ...
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt; &lt;!--/row--&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+        </div>
+
+        <!-- #################### Blog Grid #################### -->
+
+        <div id="bloggrid">
+
+            <h2 class="title">Blog grid</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of blog grid</h4>
+
+            <div class="image">
+                <img src="assets/images/blog-grid.jpg" alt="" />
+            </div>
+
+            <pre>
+                <code class="hljs">
+&lt;div class=&quot;blog blog-category blog-animated pt-4 pt-lg-5&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+
+            &lt;!--Blog item--&gt;
+
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+                &lt;article&gt;
+                    &lt;a href=&quot;article.html&quot;&gt;
+                        &lt;div class=&quot;image&quot; style=&quot;background-image:url(IMAGE_PATH)&quot;&gt;
+                            &lt;img src=&quot;IMAGE_PATH&quot; alt=&quot;&quot; /&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;entry entry-table&quot;&gt;
+                            &lt;div class=&quot;date-wrapper&quot;&gt;
+                                &lt;div class=&quot;date&quot;&gt;
+                                    &lt;span&gt;...&lt;/span&gt;
+                                    &lt;strong&gt;...&lt;/strong&gt;
+                                    &lt;span&gt;...&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;title&quot;&gt;
+                                &lt;h2 class=&quot;h5&quot;&gt;...&lt;/h2&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/a&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;&lt;!--/container--&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+
+        </div>
+
+
+        <!-- #################### Blog Grid #################### -->
+
+        <div id="bloglist">
+
+            <h2 class="title">Blog list</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of blog list</h4>
+
+            <div class="image">
+                <img src="assets/images/blog-list.jpg" alt="" />
+            </div>
+
+            <pre>
+            <code class="hljs">
+&lt;div class=&quot;blog blog-category blog-animated pt-4 pt-lg-5&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;clearfix&quot;&gt;
+
+            &lt;!--Blog item--&gt;
+
+            &lt;article class=&quot;article-table&quot;&gt;
+                &lt;a href=&quot;article.html&quot;&gt;
+                    &lt;div class=&quot;image&quot; style=&quot;background-image:url(IMAGE_PATH)&quot;&gt;
+                        &lt;img src=&quot;IMAGE_PATH&quot; alt=&quot;&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;text&quot;&gt;
+                        &lt;div class=&quot;title&quot;&gt;
+                            &lt;p&gt;...&lt;/p&gt;
+                            &lt;h2 class=&quot;h5&quot;&gt;...&lt;/h2&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;text-intro&quot;&gt;
+                            &lt;p&gt;...&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+            &lt;/article&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;&lt;!--/container--&gt;
+&lt;/div&gt;
+            </code>
+            </pre>
+
+        </div>
+
+        <!-- #################### Demo #################### -->
+
+        <div id="demo">
+
+            <h2 class="title">Title demo</h2>
+
+            <!-- --------- Markup --------- -->
+
+            <h4 class="subtitle">Markup example of slider</h4>
+
+            <pre>
+            <code class="hljs">
+
+            </code>
+            </pre>
+
+            <!-- --------- Initalize the plugin --------- -->
+
+            <h4 class="subtitle">Initalize the plugin</h4>
+
+            <pre>
+            <code class="hljs">
+
+            </code>
+            </pre>
+
+        </div>
+
+        <!-- #################### Credits #################### -->
+
+        <div id="credits">
+            <h2 class="title">Credits</h2>
+
+            <h4 class="subtitle">Images</h4>
+
+            <ul>
+                <li><a target="_blank" href="https://unsplash.com/">Unsplash</a></li>
+                <li><a target="_blank" href="https://www.pexels.com/">Pexels</a></li>
+                <li><a target="_blank" href="https://pixabay.com/en/">Pixabay</a></li>
+                <li><a target="_blank" href="https://morguefile.com/">Morguefile</a></li>
+            </ul>
+
+            <h4 class="subtitle">jQuery</h4>
+
+            <ul>
+                <li><a target="_blank" href="http://www.landmarkmlp.com/js-plugin/owl.carousel/">Owl Carousel</a></li>
+                <li><a target="_blank" href="http://dimsemenov.com/plugins/magnific-popup/">Magnific popup</a></li>
+                <li><a target="_blank" href="http://ionden.com/a/plugins/ion.rangeSlider/en.html">Ion RangeSlider</a></li>
+            </ul>
+
+            <h4 class="subtitle">CSS</h4>
+
+            <ul>
+                <li><a target="_blank" href="http://www.landmarkmlp.com/js-plugin/owl.carousel/">Bootstrap</a></li>
+                <li><a target="_blank" href="https://daneden.github.io/animate.css/">Animate.css</a></li>
+                <li><a target="_blank" href="https://linearicons.com/">Linear icons</a></li>
+                <li><a target="_blank" href="https://fonts.google.com/specimen/Montserrat">Montserrat - Google Fonts</a></li>
+                <li><a target="_blank" href="https://fonts.google.com/specimen/Roboto">Roboto - Google Fonts</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+
+
+
+
